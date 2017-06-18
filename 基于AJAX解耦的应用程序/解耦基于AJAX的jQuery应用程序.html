@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10个不同的订阅者以不同的方式使用返回的数据</title>
+</head>
+<body>
+	<form id="flickerSearch">
+		<input type="text" name="tag" id="query"/>
+		<input type="submit" name="submit" value="submit">
+	</form>
+
+	<div id="lastQuery"></div>
+
+	<div id="searchResults"></div>
+
+	<script id="resultTemplate" type="text/html">
+		<% _.each(items, function( item ) { %>
+			
+			<li>
+				<p><img src="<%= item.media.m %>" alt=""></p>
+			</li>
+		<% });%>
+	</script>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js"></script>
+	<script src="../publish&subscribe模式.js"></script>
+	<script src="ajax的应用程序.js"></script>
+</body>
+</html>

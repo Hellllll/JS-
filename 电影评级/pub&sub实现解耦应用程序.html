@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电影评级</title>
+	<script id="userTemplate" type="text/html">
+		<!-- 如何提交评级才会有新用户和评级数据同时发布通知的效果 -->
+		<li><%= name %></li>
+	</script>
+	<script id="ratingsTemplate" type="text/html">
+		<li><strong><%= title %></strong> was rated <%= rating %> /5</li>
+	</script>
+</head>
+<body>
+	<div id="container">
+		
+		<div class="sampleForm">
+			<p>
+				<label for="twitter_handle">Twitter handle:	</label>
+				<input type="text" id="twitter_handle"/>
+			</p>
+			<p>
+				<label for="movie_seen">Name a movie you've seen this year:</label>
+				<input type="text" id="movie_seen"/>
+			</p>
+			<p>
+				
+				<label for="movie_rating">Rate the you saw:</label>
+				<select id="movie_rating">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5" selected>5</option>
+				</select>
+			</p>
+			<p>
+				<button id="add">Submit rating</button>
+			</p>
+		</div>
+		<div class="summaryTable">
+			<div id="users">
+				<h3>Recent users</h3>
+			</div>
+			<div id="ratings">
+				<h3>Recent movies rated</h3>
+			</div>
+		</div>
+	</div>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js"></script>
+	<script src="../publish&subscribe模式.js"></script>
+	<script src="用于pub&sub的JS代码.js"></script>
+</body>
+</html>

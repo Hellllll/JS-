@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多人聊天系统</title>
+</head>
+<body>
+	<h1>Chat</h1>
+	<form id="chatForm">
+		<label for="fromBox">Your name:</label>
+		<input type="text" id="fromBox"/>
+		<br />
+		<label for="toBox">Send to:</label>
+		<input type="text" id="toBox">
+		<br/>
+		<label for="chatBox">Message:</label>
+		<input type="text" id="chatBox">
+		<button action="submit">Chat</button>
+	</form>
+
+	<div id="chatResult"></div>
+
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="../中介者模式基本实现(Mediator).js"></script>
+	<script src="mediator.js"></script>
+</body>
+</html>

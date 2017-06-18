@@ -1,0 +1,44 @@
+<!-- 什么时候完善 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TodoList</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="http://apps.bdimg.com/libs/knockout.js/3.1.0/knockout.js"></script>
+	<script src="MVVM设计模式(Todo实践).js"></script>
+</head>
+<body>
+	<div id="todoApp" class="container-fluid">
+		<header>
+			<h1 class="text-center">Todos</h1>
+			<div class="row">
+				<div class="col-6 col-md-offset-3">
+					<input type="text" id="new-todo" class="form-control" data-bind="value: current, valueUpdate: 'afterkeydown', enterKey: add" placeholder="What needs to be done?"/>
+				</div>
+			</div>	
+		</header>
+		<section id="main" data-bind="block: todos().length">
+			<div class="form-group">
+				<input type="checkbox" id="toggle-all"  class="check" data-bind="checked: allCompleted">
+				<label for="toggle-all">Mark all as complete</label>
+			</div>
+			<!-- items -->
+			<ul id="todo-list" class="list-group" data-bind="foreach: todos">
+				<li class="list-unstyled row" data-bind="css: { done: done, editing: editing }">
+					<div class="col-2">
+						<div class="view" data-bind="event: { dbclick: $root.editItem }">
+							<input type="checkbox" class="toggle check" data-bind="checked: done">
+							<label data-bind="text: content"></label>
+							<a href="#" class="destroy" data-bind="click: $root.remove">Remove</a>
+						</div>
+					</div>
+					<div class="col-4">
+						<input type="text" class="edit form-control" data-bind="value: content, valueUpdate:'afterkeydown', enterKey: $root.stopEditing, selectAndFocus: editing, event: { blur: $root.stopEditing }"/>
+					</div>
+				</li>
+			</ul>
+		</section>
+	</div>
+</body>
+</html>
